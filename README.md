@@ -5,7 +5,7 @@ Scripts para extraer métricas de mercado y calcular un **Investment Quality Sco
 ## Setup (venv + pip)
 
 ```bash
-cd stocks_refactor
+cd stocks-analyzer
 python3.11 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
