@@ -1,0 +1,106 @@
+# Variables modificables que impactan scoring, clasificación y outputs.
+
+market:
+  benchmark: SPY
+  default_workers: 3
+
+finance:
+  risk_free_rate: 0.045
+  equity_risk_premium: 0.055
+
+technicals:
+  rsi_period: 14
+  trading_days_52w: 252
+
+classification:
+  # No evalua deuda/liquidez
+  special_categories:
+    - Crypto
+    - ETF fuera de CEDEAR
+
+  # Evalua balance con métricas de financieras
+  financial_sectors:
+    - financial
+
+  etf:
+    name_markers:
+      - " ETF"
+      - SPDR
+      - ISHARES
+      - VANGUARD
+      - PROSHARES
+      - ETN
+      - SELECT SECTOR
+    tickers:
+      - SPY
+      - QQQ
+      - IVV
+      - VOO
+      - VTI
+      - DIA
+      - IWM
+      - XLB  # basic materials
+      - XLC  # communication services
+      - XLY  # consumer cyclical
+      - XLP  # consumer defensive
+      - XLE  # energy
+      - XLF  # financial
+      - XLV  # healthcare
+      - XLI  # industrials
+      - XLRE # real estate
+      - XLK  # technology
+      - XLU  # utilities
+    sector_keywords:
+      - etf
+      - exchange traded
+
+  crypto:
+    name_prefixes:
+      - GRAYSCALE
+    name_markers:
+      - BITCOIN
+      - CRYPTO
+    sectors:
+      - crypto
+    tickers: []
+
+score:
+  max: 100
+  block_max:
+    valuation: 25
+    growth: 20
+    quality: 30
+    balance: 15
+    momentum: 10
+  confirmed_min_score: 70
+  quality_high: 20
+  balance_high: 10
+  valuation_floor: 10
+  cycle_eps: 0.12
+  cycle_sales: 0.15
+  completeness:
+    complete_pct: 80
+    partial_pct: 50
+  confirmed_strength:
+    - LEADING
+    - STRONG
+  dislocated_strength: WEAK
+
+relative_strength:
+  # |α vs ETF| por debajo de esto → NEUTRAL
+  neutral_band_abs: 2.0
+
+industry_etf_overrides: # pisar valores de ETF de finviz
+  staffing: XLI
+  employment: XLI
+  business services: XLI
+  consulting: XLI
+  specialty business: XLI
+  software: null
+
+discover:
+  page_size: 20
+  default_limit: 250
+  default_peer_count: 15
+  request_pause_seconds: 0.8
+  peer_sort_order: "-perf52w"

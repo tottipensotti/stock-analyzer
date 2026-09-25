@@ -1,0 +1,1472 @@
+# Catálogo Finviz: market cap, sectores, industries, themes y subthemes.
+# Uso CLI:
+#   --market-cap largeover|mid|…
+#   --sector KEY | --industry KEY | --theme KEY | --subtheme KEY
+#   --list [query]
+# Fuente: https://finviz.com/screener
+#
+source: finviz
+updated: '2026-09-24'
+default_market_cap: largeover
+notes: >-
+  Keys CLI en minúsculas. market_cap usa el value Finviz (mega, largeover, …). Meta-filters de industry (Stocks
+  only, ETF) omitidos.
+market_caps:
+- key: mega
+  label: Mega ($200bln and more)
+  filter: cap_mega
+- key: large
+  label: Large ($10bln to $200bln)
+  filter: cap_large
+- key: mid
+  label: Mid ($2bln to $10bln)
+  filter: cap_mid
+- key: small
+  label: Small ($300mln to $2bln)
+  filter: cap_small
+- key: micro
+  label: Micro ($50mln to $300mln)
+  filter: cap_micro
+- key: nano
+  label: Nano (under $50mln)
+  filter: cap_nano
+- key: largeover
+  label: +Large (over $10bln)
+  filter: cap_largeover
+- key: midover
+  label: +Mid (over $2bln)
+  filter: cap_midover
+- key: smallover
+  label: +Small (over $300mln)
+  filter: cap_smallover
+- key: microover
+  label: +Micro (over $50mln)
+  filter: cap_microover
+- key: largeunder
+  label: -Large (under $200bln)
+  filter: cap_largeunder
+- key: midunder
+  label: -Mid (under $10bln)
+  filter: cap_midunder
+- key: smallunder
+  label: -Small (under $2bln)
+  filter: cap_smallunder
+- key: microunder
+  label: -Micro (under $300mln)
+  filter: cap_microunder
+sectors:
+- key: basic materials
+  label: Basic Materials
+  filter: sec_basicmaterials
+  etf: XLB
+- key: communication services
+  label: Communication Services
+  filter: sec_communicationservices
+  etf: XLC
+- key: consumer cyclical
+  label: Consumer Cyclical
+  filter: sec_consumercyclical
+  etf: XLY
+- key: consumer defensive
+  label: Consumer Defensive
+  filter: sec_consumerdefensive
+  etf: XLP
+- key: energy
+  label: Energy
+  filter: sec_energy
+  etf: XLE
+- key: financial
+  label: Financial
+  filter: sec_financial
+  etf: XLF
+- key: healthcare
+  label: Healthcare
+  filter: sec_healthcare
+  etf: XLV
+- key: industrials
+  label: Industrials
+  filter: sec_industrials
+  etf: XLI
+- key: real estate
+  label: Real Estate
+  filter: sec_realestate
+  etf: XLRE
+- key: technology
+  label: Technology
+  filter: sec_technology
+  etf: XLK
+- key: utilities
+  label: Utilities
+  filter: sec_utilities
+  etf: XLU
+industries:
+- key: advertising agencies
+  label: Advertising Agencies
+  filter: ind_advertisingagencies
+- key: aerospace and defense
+  label: Aerospace & Defense
+  filter: ind_aerospacedefense
+- key: agricultural inputs
+  label: Agricultural Inputs
+  filter: ind_agriculturalinputs
+- key: airlines
+  label: Airlines
+  filter: ind_airlines
+- key: airports and air services
+  label: Airports & Air Services
+  filter: ind_airportsairservices
+- key: aluminum
+  label: Aluminum
+  filter: ind_aluminum
+- key: apparel manufacturing
+  label: Apparel Manufacturing
+  filter: ind_apparelmanufacturing
+- key: apparel retail
+  label: Apparel Retail
+  filter: ind_apparelretail
+- key: asset management
+  label: Asset Management
+  filter: ind_assetmanagement
+- key: auto manufacturers
+  label: Auto Manufacturers
+  filter: ind_automanufacturers
+- key: auto parts
+  label: Auto Parts
+  filter: ind_autoparts
+- key: auto and truck dealerships
+  label: Auto & Truck Dealerships
+  filter: ind_autotruckdealerships
+- key: banks diversified
+  label: Banks - Diversified
+  filter: ind_banksdiversified
+- key: banks regional
+  label: Banks - Regional
+  filter: ind_banksregional
+- key: beverages brewers
+  label: Beverages - Brewers
+  filter: ind_beveragesbrewers
+- key: beverages non alcoholic
+  label: Beverages - Non-Alcoholic
+  filter: ind_beveragesnonalcoholic
+- key: beverages wineries and distilleries
+  label: Beverages - Wineries & Distilleries
+  filter: ind_beverageswineriesdistilleries
+- key: biotechnology
+  label: Biotechnology
+  filter: ind_biotechnology
+- key: broadcasting
+  label: Broadcasting
+  filter: ind_broadcasting
+- key: building materials
+  label: Building Materials
+  filter: ind_buildingmaterials
+- key: building products and equipment
+  label: Building Products & Equipment
+  filter: ind_buildingproductsequipment
+- key: business equipment and supplies
+  label: Business Equipment & Supplies
+  filter: ind_businessequipmentsupplies
+- key: capital markets
+  label: Capital Markets
+  filter: ind_capitalmarkets
+- key: chemicals
+  label: Chemicals
+  filter: ind_chemicals
+- key: closed end fund debt
+  label: Closed-End Fund - Debt
+  filter: ind_closedendfunddebt
+- key: closed end fund equity
+  label: Closed-End Fund - Equity
+  filter: ind_closedendfundequity
+- key: closed end fund foreign
+  label: Closed-End Fund - Foreign
+  filter: ind_closedendfundforeign
+- key: coking coal
+  label: Coking Coal
+  filter: ind_cokingcoal
+- key: communication equipment
+  label: Communication Equipment
+  filter: ind_communicationequipment
+- key: computer hardware
+  label: Computer Hardware
+  filter: ind_computerhardware
+- key: confectioners
+  label: Confectioners
+  filter: ind_confectioners
+- key: conglomerates
+  label: Conglomerates
+  filter: ind_conglomerates
+- key: consulting services
+  label: Consulting Services
+  filter: ind_consultingservices
+- key: consumer electronics
+  label: Consumer Electronics
+  filter: ind_consumerelectronics
+- key: copper
+  label: Copper
+  filter: ind_copper
+- key: credit services
+  label: Credit Services
+  filter: ind_creditservices
+- key: department stores
+  label: Department Stores
+  filter: ind_departmentstores
+- key: diagnostics and research
+  label: Diagnostics & Research
+  filter: ind_diagnosticsresearch
+- key: discount stores
+  label: Discount Stores
+  filter: ind_discountstores
+- key: drug manufacturers general
+  label: Drug Manufacturers - General
+  filter: ind_drugmanufacturersgeneral
+- key: drug manufacturers specialty and generic
+  label: Drug Manufacturers - Specialty & Generic
+  filter: ind_drugmanufacturersspecialtygeneric
+- key: education and training services
+  label: Education & Training Services
+  filter: ind_educationtrainingservices
+- key: electrical equipment and parts
+  label: Electrical Equipment & Parts
+  filter: ind_electricalequipmentparts
+- key: electronic components
+  label: Electronic Components
+  filter: ind_electroniccomponents
+- key: electronic gaming and multimedia
+  label: Electronic Gaming & Multimedia
+  filter: ind_electronicgamingmultimedia
+- key: electronics and computer distribution
+  label: Electronics & Computer Distribution
+  filter: ind_electronicscomputerdistribution
+- key: engineering and construction
+  label: Engineering & Construction
+  filter: ind_engineeringconstruction
+- key: entertainment
+  label: Entertainment
+  filter: ind_entertainment
+- key: farm and heavy construction machinery
+  label: Farm & Heavy Construction Machinery
+  filter: ind_farmheavyconstructionmachinery
+- key: farm products
+  label: Farm Products
+  filter: ind_farmproducts
+- key: financial conglomerates
+  label: Financial Conglomerates
+  filter: ind_financialconglomerates
+- key: financial data and stock exchanges
+  label: Financial Data & Stock Exchanges
+  filter: ind_financialdatastockexchanges
+- key: food distribution
+  label: Food Distribution
+  filter: ind_fooddistribution
+- key: footwear and accessories
+  label: Footwear & Accessories
+  filter: ind_footwearaccessories
+- key: furnishings fixtures and appliances
+  label: Furnishings, Fixtures & Appliances
+  filter: ind_furnishingsfixturesappliances
+- key: gambling
+  label: Gambling
+  filter: ind_gambling
+- key: gold
+  label: Gold
+  filter: ind_gold
+- key: grocery stores
+  label: Grocery Stores
+  filter: ind_grocerystores
+- key: healthcare plans
+  label: Healthcare Plans
+  filter: ind_healthcareplans
+- key: health information services
+  label: Health Information Services
+  filter: ind_healthinformationservices
+- key: home improvement retail
+  label: Home Improvement Retail
+  filter: ind_homeimprovementretail
+- key: household and personal products
+  label: Household & Personal Products
+  filter: ind_householdpersonalproducts
+- key: industrial distribution
+  label: Industrial Distribution
+  filter: ind_industrialdistribution
+- key: information technology services
+  label: Information Technology Services
+  filter: ind_informationtechnologyservices
+- key: infrastructure operations
+  label: Infrastructure Operations
+  filter: ind_infrastructureoperations
+- key: insurance brokers
+  label: Insurance Brokers
+  filter: ind_insurancebrokers
+- key: insurance diversified
+  label: Insurance - Diversified
+  filter: ind_insurancediversified
+- key: insurance life
+  label: Insurance - Life
+  filter: ind_insurancelife
+- key: insurance property and casualty
+  label: Insurance - Property & Casualty
+  filter: ind_insurancepropertycasualty
+- key: insurance reinsurance
+  label: Insurance - Reinsurance
+  filter: ind_insurancereinsurance
+- key: insurance specialty
+  label: Insurance - Specialty
+  filter: ind_insurancespecialty
+- key: integrated freight and logistics
+  label: Integrated Freight & Logistics
+  filter: ind_integratedfreightlogistics
+- key: internet content and information
+  label: Internet Content & Information
+  filter: ind_internetcontentinformation
+- key: internet retail
+  label: Internet Retail
+  filter: ind_internetretail
+- key: leisure
+  label: Leisure
+  filter: ind_leisure
+- key: lodging
+  label: Lodging
+  filter: ind_lodging
+- key: lumber and wood production
+  label: Lumber & Wood Production
+  filter: ind_lumberwoodproduction
+- key: luxury goods
+  label: Luxury Goods
+  filter: ind_luxurygoods
+- key: marine shipping
+  label: Marine Shipping
+  filter: ind_marineshipping
+- key: medical care facilities
+  label: Medical Care Facilities
+  filter: ind_medicalcarefacilities
+- key: medical devices
+  label: Medical Devices
+  filter: ind_medicaldevices
+- key: medical distribution
+  label: Medical Distribution
+  filter: ind_medicaldistribution
+- key: medical instruments and supplies
+  label: Medical Instruments & Supplies
+  filter: ind_medicalinstrumentssupplies
+- key: metal fabrication
+  label: Metal Fabrication
+  filter: ind_metalfabrication
+- key: mortgage finance
+  label: Mortgage Finance
+  filter: ind_mortgagefinance
+- key: oil and gas drilling
+  label: Oil & Gas Drilling
+  filter: ind_oilgasdrilling
+- key: oil and gas eandp
+  label: Oil & Gas E&P
+  filter: ind_oilgasep
+- key: oil and gas equipment and services
+  label: Oil & Gas Equipment & Services
+  filter: ind_oilgasequipmentservices
+- key: oil and gas integrated
+  label: Oil & Gas Integrated
+  filter: ind_oilgasintegrated
+- key: oil and gas midstream
+  label: Oil & Gas Midstream
+  filter: ind_oilgasmidstream
+- key: oil and gas refining and marketing
+  label: Oil & Gas Refining & Marketing
+  filter: ind_oilgasrefiningmarketing
+- key: other industrial metals and mining
+  label: Other Industrial Metals & Mining
+  filter: ind_otherindustrialmetalsmining
+- key: other precious metals and mining
+  label: Other Precious Metals & Mining
+  filter: ind_otherpreciousmetalsmining
+- key: packaged foods
+  label: Packaged Foods
+  filter: ind_packagedfoods
+- key: packaging and containers
+  label: Packaging & Containers
+  filter: ind_packagingcontainers
+- key: paper and paper products
+  label: Paper & Paper Products
+  filter: ind_paperpaperproducts
+- key: personal services
+  label: Personal Services
+  filter: ind_personalservices
+- key: pharmaceutical retailers
+  label: Pharmaceutical Retailers
+  filter: ind_pharmaceuticalretailers
+- key: pollution and treatment controls
+  label: Pollution & Treatment Controls
+  filter: ind_pollutiontreatmentcontrols
+- key: publishing
+  label: Publishing
+  filter: ind_publishing
+- key: railroads
+  label: Railroads
+  filter: ind_railroads
+- key: real estate development
+  label: Real Estate - Development
+  filter: ind_realestatedevelopment
+- key: real estate diversified
+  label: Real Estate - Diversified
+  filter: ind_realestatediversified
+- key: real estate services
+  label: Real Estate Services
+  filter: ind_realestateservices
+- key: recreational vehicles
+  label: Recreational Vehicles
+  filter: ind_recreationalvehicles
+- key: reit diversified
+  label: REIT - Diversified
+  filter: ind_reitdiversified
+- key: reit healthcare facilities
+  label: REIT - Healthcare Facilities
+  filter: ind_reithealthcarefacilities
+- key: reit hotel and motel
+  label: REIT - Hotel & Motel
+  filter: ind_reithotelmotel
+- key: reit industrial
+  label: REIT - Industrial
+  filter: ind_reitindustrial
+- key: reit mortgage
+  label: REIT - Mortgage
+  filter: ind_reitmortgage
+- key: reit office
+  label: REIT - Office
+  filter: ind_reitoffice
+- key: reit residential
+  label: REIT - Residential
+  filter: ind_reitresidential
+- key: reit retail
+  label: REIT - Retail
+  filter: ind_reitretail
+- key: reit specialty
+  label: REIT - Specialty
+  filter: ind_reitspecialty
+- key: rental and leasing services
+  label: Rental & Leasing Services
+  filter: ind_rentalleasingservices
+- key: residential construction
+  label: Residential Construction
+  filter: ind_residentialconstruction
+- key: resorts and casinos
+  label: Resorts & Casinos
+  filter: ind_resortscasinos
+- key: restaurants
+  label: Restaurants
+  filter: ind_restaurants
+- key: scientific and technical instruments
+  label: Scientific & Technical Instruments
+  filter: ind_scientifictechnicalinstruments
+- key: security and protection services
+  label: Security & Protection Services
+  filter: ind_securityprotectionservices
+- key: semiconductor equipment and materials
+  label: Semiconductor Equipment & Materials
+  filter: ind_semiconductorequipmentmaterials
+- key: semiconductors
+  label: Semiconductors
+  filter: ind_semiconductors
+- key: shell companies
+  label: Shell Companies
+  filter: ind_shellcompanies
+- key: silver
+  label: Silver
+  filter: ind_silver
+- key: software application
+  label: Software - Application
+  filter: ind_softwareapplication
+- key: software infrastructure
+  label: Software - Infrastructure
+  filter: ind_softwareinfrastructure
+- key: solar
+  label: Solar
+  filter: ind_solar
+- key: specialty business services
+  label: Specialty Business Services
+  filter: ind_specialtybusinessservices
+- key: specialty chemicals
+  label: Specialty Chemicals
+  filter: ind_specialtychemicals
+- key: specialty industrial machinery
+  label: Specialty Industrial Machinery
+  filter: ind_specialtyindustrialmachinery
+- key: specialty retail
+  label: Specialty Retail
+  filter: ind_specialtyretail
+- key: staffing and employment services
+  label: Staffing & Employment Services
+  filter: ind_staffingemploymentservices
+- key: steel
+  label: Steel
+  filter: ind_steel
+- key: telecom services
+  label: Telecom Services
+  filter: ind_telecomservices
+- key: textile manufacturing
+  label: Textile Manufacturing
+  filter: ind_textilemanufacturing
+- key: thermal coal
+  label: Thermal Coal
+  filter: ind_thermalcoal
+- key: tobacco
+  label: Tobacco
+  filter: ind_tobacco
+- key: tools and accessories
+  label: Tools & Accessories
+  filter: ind_toolsaccessories
+- key: travel services
+  label: Travel Services
+  filter: ind_travelservices
+- key: trucking
+  label: Trucking
+  filter: ind_trucking
+- key: uranium
+  label: Uranium
+  filter: ind_uranium
+- key: utilities diversified
+  label: Utilities - Diversified
+  filter: ind_utilitiesdiversified
+- key: utilities independent power producers
+  label: Utilities - Independent Power Producers
+  filter: ind_utilitiesindependentpowerproducers
+- key: utilities regulated electric
+  label: Utilities - Regulated Electric
+  filter: ind_utilitiesregulatedelectric
+- key: utilities regulated gas
+  label: Utilities - Regulated Gas
+  filter: ind_utilitiesregulatedgas
+- key: utilities regulated water
+  label: Utilities - Regulated Water
+  filter: ind_utilitiesregulatedwater
+- key: utilities renewable
+  label: Utilities - Renewable
+  filter: ind_utilitiesrenewable
+- key: waste management
+  label: Waste Management
+  filter: ind_wastemanagement
+themes:
+- key: aging population and longevity
+  label: Aging Population & Longevity
+  filter: theme_agingpopulationlongevity
+- key: agriculture and foodtech
+  label: Agriculture & FoodTech
+  filter: theme_agriculturefoodtech
+- key: artificial intelligence
+  label: Artificial Intelligence
+  filter: theme_artificialintelligence
+- key: autonomous systems
+  label: Autonomous Systems
+  filter: theme_autonomoussystems
+- key: big data
+  label: Big Data
+  filter: theme_bigdata
+- key: biometrics
+  label: Biometrics
+  filter: theme_biometrics
+- key: cloud computing
+  label: Cloud Computing
+  filter: theme_cloudcomputing
+- key: commodities agriculture
+  label: Commodities - Agriculture
+  filter: theme_commoditiesagriculture
+- key: commodities energy
+  label: Commodities - Energy
+  filter: theme_commoditiesenergy
+- key: commodities metals
+  label: Commodities - Metals
+  filter: theme_commoditiesmetals
+- key: consumer goods
+  label: Consumer Goods
+  filter: theme_consumergoods
+- key: crypto and blockchain
+  label: Crypto & Blockchain
+  filter: theme_cryptoblockchain
+- key: cybersecurity
+  label: Cybersecurity
+  filter: theme_cybersecurity
+- key: defense and aerospace
+  label: Defense & Aerospace
+  filter: theme_defenseaerospace
+- key: digital entertainment
+  label: Digital Entertainment
+  filter: theme_digitalentertainment
+- key: e commerce
+  label: E-commerce
+  filter: theme_ecommerce
+- key: education technology
+  label: Education Technology
+  filter: theme_educationtechnology
+- key: electric vehicles
+  label: Electric Vehicles
+  filter: theme_electricvehicles
+- key: energy renewable
+  label: Energy - Renewable
+  filter: theme_energyrenewable
+- key: energy traditional
+  label: Energy - Traditional
+  filter: theme_energytraditional
+- key: environmental sustainability
+  label: Environmental Sustainability
+  filter: theme_environmentalsustainability
+- key: fintech
+  label: FinTech
+  filter: theme_fintech
+- key: hardware
+  label: Hardware
+  filter: theme_hardware
+- key: healthcare and biotech
+  label: Healthcare & Biotech
+  filter: theme_healthcarebiotech
+- key: healthy food and nutrition
+  label: Healthy Food & Nutrition
+  filter: theme_healthyfoodnutrition
+- key: industrial automation
+  label: Industrial Automation
+  filter: theme_industrialautomation
+- key: internet of things
+  label: Internet of Things
+  filter: theme_internetofthings
+- key: nanotechnology
+  label: Nanotechnology
+  filter: theme_nanotechnology
+- key: quantum computing
+  label: Quantum Computing
+  filter: theme_quantumcomputing
+- key: real estate and reits
+  label: Real Estate & REITs
+  filter: theme_realestatereits
+- key: robotics
+  label: Robotics
+  filter: theme_robotics
+- key: semiconductors
+  label: Semiconductors
+  filter: theme_semiconductors
+- key: smart home
+  label: Smart Home
+  filter: theme_smarthome
+- key: social media
+  label: Social Media
+  filter: theme_socialmedia
+- key: software
+  label: Software
+  filter: theme_software
+- key: space tech
+  label: Space Tech
+  filter: theme_spacetech
+- key: telecommunications
+  label: Telecommunications
+  filter: theme_telecommunications
+- key: transportation and logistics
+  label: Transportation & Logistics
+  filter: theme_transportationlogistics
+- key: virtual and augmented reality
+  label: Virtual & Augmented Reality
+  filter: theme_virtualaugmentedreality
+- key: wearables
+  label: Wearables
+  filter: theme_wearables
+subthemes:
+- key: agriculture alternative proteins
+  label: Agriculture - Alternative Proteins
+  filter: subtheme_agriculturealtprotein
+- key: agriculture agricultural inputs and crop science
+  label: Agriculture - Agricultural Inputs & Crop Science
+  filter: subtheme_agriculturecropinputs
+- key: agriculture controlled environment agriculture
+  label: Agriculture - Controlled Environment Agriculture
+  filter: subtheme_agricultureindoorfarming
+- key: agriculture agri food processing and distribution
+  label: Agriculture - Agri-Food Processing & Distribution
+  filter: subtheme_agricultureprocessing
+- key: agriculture precision agriculture and farm automation
+  label: Agriculture - Precision Agriculture & Farm Automation
+  filter: subtheme_agriculturesmartfarming
+- key: ai ads search and recommendations
+  label: AI - Ads, Search & Recommendations
+  filter: subtheme_aiadssearch
+- key: ai agi general intelligence
+  label: AI - AGI, general intelligence
+  filter: subtheme_aiagi
+- key: ai apps domain specific ai
+  label: AI - Apps, Domain-Specific AI
+  filter: subtheme_aiapplications
+- key: ai cloud and infrastructure
+  label: AI - Cloud & Infrastructure
+  filter: subtheme_aicloud
+- key: ai compute and acceleration
+  label: AI - Compute & Acceleration
+  filter: subtheme_aicompute
+- key: ai data infrastructure and enablement
+  label: AI - Data Infrastructure & Enablement
+  filter: subtheme_aidata
+- key: ai edge and embedded systems
+  label: AI - Edge & Embedded Systems
+  filter: subtheme_aiedge
+- key: ai power and energy solutions
+  label: AI - Power & Energy Solutions
+  filter: subtheme_aienergy
+- key: ai enterprise productivity and software integration
+  label: AI - Enterprise Productivity & Software Integration
+  filter: subtheme_aienterprise
+- key: ai foundation models and platforms
+  label: AI - Foundation Models & Platforms
+  filter: subtheme_aimodels
+- key: ai networking and systems optimization
+  label: AI - Networking & Systems Optimization
+  filter: subtheme_ainetworking
+- key: ai robotics and automation
+  label: AI - Robotics & Automation
+  filter: subtheme_airobotics
+- key: ai cybersecurity
+  label: AI - Cybersecurity
+  filter: subtheme_aisecurity
+- key: automation factory and process automation systems
+  label: Automation - Factory & Process Automation Systems
+  filter: subtheme_automationautomation
+- key: automation additive manufacturing 3d printing
+  label: Automation - Additive Manufacturing, 3D Printing
+  filter: subtheme_automationdprinting
+- key: automation industrial iot connectivity
+  label: Automation - Industrial IoT, Connectivity
+  filter: subtheme_automationiot
+- key: automation smart logistics and warehouse automation
+  label: Automation - Smart Logistics & Warehouse Automation
+  filter: subtheme_automationlogistics
+- key: automation industrial sensors and machine vision
+  label: Automation - Industrial Sensors & Machine Vision
+  filter: subtheme_automationmachinevision
+- key: automation industrial robotics and autonomous systems
+  label: Automation - Industrial Robotics & Autonomous Systems
+  filter: subtheme_automationrobotics
+- key: automation industrial software and digital twin
+  label: Automation - Industrial Software & Digital Twin
+  filter: subtheme_automationsoftware
+- key: autonomous vehicles and mobility
+  label: Autonomous  - Vehicles & Mobility
+  filter: subtheme_autonomousavmobility
+- key: autonomous aerospace defense and drones
+  label: Autonomous  - Aerospace, Defense & Drones
+  filter: subtheme_autonomousdefense
+- key: autonomous industrial and logistics automation
+  label: Autonomous  - Industrial & Logistics Automation
+  filter: subtheme_autonomousindustrial
+- key: autonomous sensors and perception systems
+  label: Autonomous  - Sensors & Perception Systems
+  filter: subtheme_autonomousmachinevision
+- key: autonomous software and cloud infrastructure
+  label: Autonomous  - Software & Cloud Infrastructure
+  filter: subtheme_autonomoussoftware
+- key: autonomous maritime agriculture and specialized autonomy
+  label: Autonomous  - Maritime, Agriculture & Specialized Autonomy
+  filter: subtheme_autonomousspecialized
+- key: big data ai platforms and predictive analytics
+  label: Big Data - AI Platforms & Predictive Analytics
+  filter: subtheme_bigdataaiplatforms
+- key: big data analytics and business intelligence
+  label: Big Data - Analytics & Business Intelligence
+  filter: subtheme_bigdataanalyticsbi
+- key: big data infrastructure and storage
+  label: Big Data - Infrastructure & Storage
+  filter: subtheme_bigdatainfrastructure
+- key: big data data generation sourcing and providers
+  label: Big Data - Data Generation, Sourcing & Providers
+  filter: subtheme_bigdataproviders
+- key: biometrics government defense and public security
+  label: Biometrics - Government, Defense & Public Security
+  filter: subtheme_biometricsgovdefense
+- key: biometrics biometric sensors and hardware
+  label: Biometrics - Biometric Sensors & Hardware
+  filter: subtheme_biometricshardware
+- key: biometrics identity verification and security
+  label: Biometrics - Identity Verification & Security
+  filter: subtheme_biometricsidentity
+- key: biometrics recognition and analytics
+  label: Biometrics - Recognition & Analytics
+  filter: subtheme_biometricssoftware
+- key: blockchain enterprise blockchain solutions
+  label: Blockchain - Enterprise Blockchain Solutions
+  filter: subtheme_blockchainenterprise
+- key: blockchain blockchain infrastructure
+  label: Blockchain - Blockchain Infrastructure
+  filter: subtheme_blockchaininfrastructure
+- key: blockchain cryptocurrency mining and staking
+  label: Blockchain - Cryptocurrency Mining & Staking
+  filter: subtheme_blockchainmining
+- key: blockchain financial services and payments
+  label: Blockchain - Financial Services & Payments
+  filter: subtheme_blockchainpayments
+- key: blockchain cryptocurrency platforms
+  label: Blockchain - Cryptocurrency Platforms
+  filter: subtheme_blockchainplatforms
+- key: blockchain tokenization and digital assets
+  label: Blockchain - Tokenization & Digital Assets
+  filter: subtheme_blockchaintokenization
+- key: cloud data platforms and databases
+  label: Cloud - Data Platforms & Databases
+  filter: subtheme_clouddatabases
+- key: cloud data centers
+  label: Cloud - Data Centers
+  filter: subtheme_clouddatacenters
+- key: cloud devops observability
+  label: Cloud - DevOps, Observability
+  filter: subtheme_clouddevops
+- key: cloud edge cdn zero trust networking
+  label: Cloud - Edge, CDN, Zero-Trust Networking
+  filter: subtheme_cloudedge
+- key: cloud hardware networking and oem
+  label: Cloud - Hardware, Networking & OEM
+  filter: subtheme_cloudhardware
+- key: cloud horizontal saas and cloud applications
+  label: Cloud - Horizontal SaaS & Cloud Applications
+  filter: subtheme_cloudhsaas
+- key: cloud hybrid cloud
+  label: Cloud - Hybrid Cloud
+  filter: subtheme_cloudhybridcloud
+- key: cloud hyperscalers
+  label: Cloud - Hyperscalers
+  filter: subtheme_cloudhyperscalers
+- key: cloud multi cloud management
+  label: Cloud - Multi-Cloud Management
+  filter: subtheme_cloudmulticloud
+- key: cloud platforms and services paas
+  label: Cloud - Platforms & Services, PaaS
+  filter: subtheme_cloudpaas
+- key: cloud security
+  label: Cloud - Security
+  filter: subtheme_cloudsecurity
+- key: cloud serverless computing
+  label: Cloud - Serverless Computing
+  filter: subtheme_cloudserverless
+- key: comm agri renewable fuels and biofuels
+  label: Comm Agri - Renewable Fuels & Biofuels
+  filter: subtheme_commagribiofuels
+- key: comm agri fertilizers crop inputs and seeds
+  label: Comm Agri - Fertilizers, Crop Inputs & Seeds
+  filter: subtheme_commagrifertilizers
+- key: comm agri grains and oilseeds
+  label: Comm Agri - Grains & Oilseeds
+  filter: subtheme_commagrigrains
+- key: comm agri livestock and animal protein
+  label: Comm Agri - Livestock & Animal Protein
+  filter: subtheme_commagrilivestock
+- key: comm agri softs and plantation crops
+  label: Comm Agri - Softs & Plantation Crops
+  filter: subtheme_commagrisofts
+- key: comm energy biofuels and renewable fuels
+  label: Comm Energy - Biofuels & Renewable Fuels
+  filter: subtheme_commenergybiofuels
+- key: comm energy natural gas and lng
+  label: Comm Energy - Natural Gas & LNG
+  filter: subtheme_commenergygaslng
+- key: comm energy crude oil
+  label: Comm Energy - Crude Oil
+  filter: subtheme_commenergyoil
+- key: comm energy uranium and nuclear fuels
+  label: Comm Energy - Uranium & Nuclear Fuels
+  filter: subtheme_commenergyuranium
+- key: comm metals battery and energy transition metals
+  label: Comm Metals - Battery & Energy Transition Metals
+  filter: subtheme_commmetalsbattery
+- key: comm metals gold
+  label: Comm Metals - Gold
+  filter: subtheme_commmetalsgold
+- key: comm metals industrial and base metals
+  label: Comm Metals - Industrial & Base Metals
+  filter: subtheme_commmetalsindustrial
+- key: comm metals precious metals
+  label: Comm Metals - Precious Metals
+  filter: subtheme_commmetalsprecious
+- key: comm metals rare earth and strategic materials
+  label: Comm Metals - Rare Earth & Strategic Materials
+  filter: subtheme_commmetalsrareearth
+- key: comm metals recycling and circular materials
+  label: Comm Metals - Recycling & Circular Materials
+  filter: subtheme_commmetalsrecycling
+- key: comm metals silver
+  label: Comm Metals - Silver
+  filter: subtheme_commmetalssilver
+- key: consumer apparel and e commerce retail
+  label: Consumer - Apparel & E-Commerce Retail
+  filter: subtheme_consumerapparel
+- key: consumer farming and direct marketplaces
+  label: Consumer - Farming & Direct Marketplaces
+  filter: subtheme_consumerfarmdirect
+- key: consumer health food and beverages
+  label: Consumer - Health, Food & Beverages
+  filter: subtheme_consumerfood
+- key: consumer smart homes and household products
+  label: Consumer - Smart Homes & Household Products
+  filter: subtheme_consumerhousehold
+- key: consumer modern luxury and lifestyle
+  label: Consumer - Modern Luxury & Lifestyle
+  filter: subtheme_consumerluxury
+- key: consumer resale and sharing platforms
+  label: Consumer - Resale & Sharing Platforms
+  filter: subtheme_consumersecondhand
+- key: cybersecurity application security
+  label: Cybersecurity - Application Security
+  filter: subtheme_cybersecurityappsecurity
+- key: cybersecurity cloud security
+  label: Cybersecurity - Cloud Security
+  filter: subtheme_cybersecuritycloud
+- key: cybersecurity endpoint security
+  label: Cybersecurity - Endpoint Security
+  filter: subtheme_cybersecurityendpoint
+- key: cybersecurity identity and access management
+  label: Cybersecurity - Identity & Access Management
+  filter: subtheme_cybersecurityidentityiam
+- key: cybersecurity network security
+  label: Cybersecurity - Network Security
+  filter: subtheme_cybersecuritynetwork
+- key: cybersecurity security information and event management
+  label: Cybersecurity - Security Information & Event Management
+  filter: subtheme_cybersecuritysiem
+- key: cybersecurity threat intelligence
+  label: Cybersecurity - Threat Intelligence
+  filter: subtheme_cybersecuritythreatops
+- key: cybersecurity zero trust
+  label: Cybersecurity - Zero Trust
+  filter: subtheme_cybersecurityzerotrust
+- key: defense next generation aircraft and maintenance
+  label: Defense - Next-Generation Aircraft & Maintenance
+  filter: subtheme_defenseaviation
+- key: defense cyber defense and electronic warfare
+  label: Defense - Cyber Defense & Electronic Warfare
+  filter: subtheme_defensecyberdefense
+- key: defense drones and anti drone systems
+  label: Defense - Drones & Anti-Drone Systems
+  filter: subtheme_defensedrones
+- key: defense secure defense supply chains
+  label: Defense - Secure Defense Supply Chains
+  filter: subtheme_defensemanufacturing
+- key: defense missile defense and long range weapons
+  label: Defense - Missile Defense & Long-Range Weapons
+  filter: subtheme_defensemissiles
+- key: defense space technology and satellite services
+  label: Defense - Space Technology & Satellite Services
+  filter: subtheme_defensespacetech
+- key: defense precision weapons and ammunition resupply
+  label: Defense - Precision Weapons & Ammunition Resupply
+  filter: subtheme_defenseweapons
+- key: e commerce retail media and advertising
+  label: E-commerce - Retail Media & Advertising
+  filter: subtheme_ecommerceadsmedia
+- key: e commerce direct to consumer
+  label: E-commerce - Direct-to-Consumer
+  filter: subtheme_ecommercedtc
+- key: e commerce grocery and local commerce platforms
+  label: E-commerce - Grocery & Local Commerce Platforms
+  filter: subtheme_ecommercegrocery
+- key: e commerce logistics and delivery
+  label: E-commerce - Logistics & Delivery
+  filter: subtheme_ecommercelogistics
+- key: e commerce online marketplaces
+  label: E-commerce - Online Marketplaces
+  filter: subtheme_ecommercemarketplaces
+- key: e commerce omnichannel retailers online and physical stores
+  label: E-commerce - Omnichannel Retailers, Online & Physical Stores
+  filter: subtheme_ecommerceomnichannel
+- key: e commerce platforms
+  label: E-commerce - Platforms
+  filter: subtheme_ecommerceplatforms
+- key: e commerce recommerce secondhand marketplaces
+  label: E-commerce - Recommerce, Secondhand Marketplaces
+  filter: subtheme_ecommercesecondhand
+- key: e commerce social and influencer commerce
+  label: E-commerce - Social & Influencer Commerce
+  filter: subtheme_ecommercesocial
+- key: education digital curriculum
+  label: Education - Digital Curriculum
+  filter: subtheme_educationcurriculum
+- key: education infrastructure
+  label: Education - Infrastructure
+  filter: subtheme_educationinfrastructure
+- key: education online learning platforms
+  label: Education - Online Learning Platforms
+  filter: subtheme_educationplatforms
+- key: education workforce training
+  label: Education - Workforce Training
+  filter: subtheme_educationworkforce
+- key: energy base integrated energy majors
+  label: Energy Base - Integrated Energy Majors
+  filter: subtheme_energybasemajors
+- key: energy base nuclear power and advanced reactors
+  label: Energy Base - Nuclear Power & Advanced Reactors
+  filter: subtheme_energybasenuclear
+- key: energy base oil and gas exploration and production
+  label: Energy Base - Oil & Gas Exploration & Production
+  filter: subtheme_energybaseoilproduction
+- key: energy base refining and midstream infrastructure
+  label: Energy Base - Refining & Midstream Infrastructure
+  filter: subtheme_energybaseoilrefining
+- key: energy base oilfield services and equipment
+  label: Energy Base - Oilfield Services & Equipment
+  filter: subtheme_energybaseoilservices
+- key: energy base coal and thermal power generation
+  label: Energy Base - Coal & Thermal Power Generation
+  filter: subtheme_energybasethermal
+- key: energy base utilities and conventional power operators
+  label: Energy Base - Utilities & Conventional Power Operators
+  filter: subtheme_energybaseutilities
+- key: energy clean batteries and storage
+  label: Energy Clean - Batteries & Storage
+  filter: subtheme_energycleanbatteries
+- key: energy clean fuels and bioenergy
+  label: Energy Clean - Fuels & Bioenergy
+  filter: subtheme_energycleanbiofuels
+- key: energy clean geothermal
+  label: Energy Clean - Geothermal
+  filter: subtheme_energycleangeothermal
+- key: energy clean hydrogen and fuel cells
+  label: Energy Clean - Hydrogen & Fuel Cells
+  filter: subtheme_energycleanhydrogen
+- key: energy clean materials and critical metals
+  label: Energy Clean - Materials & Critical Metals
+  filter: subtheme_energycleanmaterials
+- key: energy clean smart grid and electrification
+  label: Energy Clean - Smart Grid & Electrification
+  filter: subtheme_energycleansmartgrid
+- key: energy clean solar
+  label: Energy Clean - Solar
+  filter: subtheme_energycleansolar
+- key: energy clean utilities and clean power operators
+  label: Energy Clean - Utilities & Clean Power Operators
+  filter: subtheme_energycleanutilities
+- key: energy clean wind
+  label: Energy Clean - Wind
+  filter: subtheme_energycleanwind
+- key: entertainment sports betting wagering and prediction markets
+  label: Entertainment - Sports Betting, Wagering & Prediction Markets
+  filter: subtheme_entertainmentbetting
+- key: entertainment igaming and online gambling
+  label: Entertainment - iGaming & Online Gambling
+  filter: subtheme_entertainmentgambling
+- key: entertainment game publishers and developers
+  label: Entertainment - Game Publishers & Developers
+  filter: subtheme_entertainmentgaming
+- key: entertainment streaming and gaming infrastructure
+  label: Entertainment - Streaming & Gaming Infrastructure
+  filter: subtheme_entertainmentinfrastructure
+- key: entertainment music and audio streaming
+  label: Entertainment - Music & Audio Streaming
+  filter: subtheme_entertainmentmusic
+- key: entertainment video streaming
+  label: Entertainment - Video Streaming
+  filter: subtheme_entertainmentvideo
+- key: environmental sustainable agriculture and resource management
+  label: Environmental - Sustainable Agriculture & Resource Management
+  filter: subtheme_environmentalagriculture
+- key: environmental clean technologies and pollution control
+  label: Environmental - Clean Technologies & Pollution Control
+  filter: subtheme_environmentalairquality
+- key: environmental climate technologies and carbon solutions
+  label: Environmental - Climate Technologies & Carbon Solutions
+  filter: subtheme_environmentalclimate
+- key: environmental waste management and recycling
+  label: Environmental - Waste Management & Recycling
+  filter: subtheme_environmentalwaste
+- key: environmental water infrastructure and treatment
+  label: Environmental - Water Infrastructure & Treatment
+  filter: subtheme_environmentalwater
+- key: evs batteries and materials
+  label: EVs - Batteries & Materials
+  filter: subtheme_evsbatteries
+- key: evs charging and infrastructure
+  label: EVs - Charging & Infrastructure
+  filter: subtheme_evscharging
+- key: evs auto semiconductors and power electronics
+  label: EVs - Auto Semiconductors & Power Electronics
+  filter: subtheme_evschips
+- key: evs fleet management and telematics
+  label: EVs - Fleet Management & Telematics
+  filter: subtheme_evsfleets
+- key: evs manufacturers
+  label: EVs - Manufacturers
+  filter: subtheme_evsmanufacturers
+- key: evs autonomous driving
+  label: EVs - Autonomous Driving
+  filter: subtheme_evsselfdriving
+- key: evs key suppliers and autonomy tech
+  label: EVs - Key Suppliers & Autonomy Tech
+  filter: subtheme_evssuppliers
+- key: fintech crypto blockchain and tokenization
+  label: FinTech - Crypto, Blockchain & Tokenization
+  filter: subtheme_fintechblockchain
+- key: fintech exchanges and market infrastructure
+  label: FinTech - Exchanges & Market Infrastructure
+  filter: subtheme_fintechexchanges
+- key: fintech insurtech and embedded insurance
+  label: FinTech - InsurTech & Embedded Insurance
+  filter: subtheme_fintechinsurance
+- key: fintech lending credit and bnpl
+  label: FinTech - Lending, Credit & BNPL
+  filter: subtheme_fintechlending
+- key: fintech digital banking and neobanks
+  label: FinTech - Digital Banking & Neobanks
+  filter: subtheme_fintechneobanks
+- key: fintech digital payments and merchant infrastructure
+  label: FinTech - Digital Payments & Merchant Infrastructure
+  filter: subtheme_fintechpayments
+- key: fintech trading platforms and wealthtech
+  label: FinTech - Trading Platforms & WealthTech
+  filter: subtheme_fintechtrading
+- key: hardware data center infrastructure
+  label: Hardware - Data Center Infrastructure
+  filter: subtheme_hardwaredatacenters
+- key: hardware consumer electronics gaming pcs and consoles
+  label: Hardware - Consumer Electronics, Gaming PCs & Consoles
+  filter: subtheme_hardwareelectronics
+- key: hardware gaming and immersive pheriperals
+  label: Hardware - Gaming & Immersive Pheriperals
+  filter: subtheme_hardwaregaming
+- key: hardware industrial and iot
+  label: Hardware - Industrial & IoT
+  filter: subtheme_hardwareindustrialiot
+- key: hardware networking equipment
+  label: Hardware - Networking Equipment
+  filter: subtheme_hardwarenetworking
+- key: hardware next gen and specialty
+  label: Hardware - Next-Gen & Specialty
+  filter: subtheme_hardwarenextgen
+- key: hardware personal computing and devices
+  label: Hardware - Personal Computing & Devices
+  filter: subtheme_hardwarepcsdevices
+- key: hardware printing and imaging
+  label: Hardware - Printing & Imaging
+  filter: subtheme_hardwareprinting
+- key: hardware servers oems and enterprise systems
+  label: Hardware - Servers, OEMs & Enterprise Systems
+  filter: subtheme_hardwareservers
+- key: hardware storage
+  label: Hardware - Storage
+  filter: subtheme_hardwarestorage
+- key: hardware communications and telecom
+  label: Hardware - Communications & Telecom
+  filter: subtheme_hardwaretelecom
+- key: healthcare medical devices and healthtech hardware
+  label: Healthcare - Medical Devices & HealthTech Hardware
+  filter: subtheme_healthcaredevices
+- key: healthcare diagnostics biomarkers and liquid biopsy
+  label: Healthcare - Diagnostics, Biomarkers & Liquid Biopsy
+  filter: subtheme_healthcarediagnostics
+- key: healthcare genomics and personalized medicine
+  label: Healthcare - Genomics & Personalized Medicine
+  filter: subtheme_healthcaregenomics
+- key: healthcare it services and data infrastructure
+  label: Healthcare - IT, Services & Data Infrastructure
+  filter: subtheme_healthcareitdata
+- key: healthcare metabolic and cardiometabolic
+  label: Healthcare - Metabolic & Cardiometabolic
+  filter: subtheme_healthcaremetabolic
+- key: healthcare next gen biotech platforms
+  label: Healthcare - Next-Gen Biotech Platforms
+  filter: subtheme_healthcarenextgen
+- key: healthcare oncology and precision cancer therapeutics
+  label: Healthcare - Oncology & Precision Cancer Therapeutics
+  filter: subtheme_healthcareoncology
+- key: healthcare digital health telemedicine and remote care
+  label: Healthcare - Digital Health, Telemedicine & Remote Care
+  filter: subtheme_healthcaretelemedicine
+- key: healthcare regenerative medicine psychedelics cannabis
+  label: Healthcare - Regenerative Medicine, Psychedelics, Cannabis
+  filter: subtheme_healthcaretherapeutics
+- key: iot connected devices and sensors
+  label: IoT - Connected Devices & Sensors
+  filter: subtheme_iotedgedevices
+- key: iot industrial and enterprise iot
+  label: IoT - Industrial & Enterprise IoT
+  filter: subtheme_iotenterprise
+- key: iot edge computing and hardware infrastructure
+  label: IoT - Edge Computing & Hardware Infrastructure
+  filter: subtheme_iothardware
+- key: iot connectivity and networks
+  label: IoT - Connectivity & Networks
+  filter: subtheme_iotnetworking
+- key: iot security and data management
+  label: IoT - Security & Data Management
+  filter: subtheme_iotsecurity
+- key: iot platforms software and analytics
+  label: IoT - Platforms, Software & Analytics
+  filter: subtheme_iotsoftware
+- key: longevity age related pharmaceuticals and biotech
+  label: Longevity - Age-Related Pharmaceuticals & Biotech
+  filter: subtheme_longevityagingpharma
+- key: longevity healthcare and medical devices
+  label: Longevity - Healthcare & Medical Devices
+  filter: subtheme_longevityhealthcare
+- key: longevity healthy aging and nutrition
+  label: Longevity - Healthy Aging & Nutrition
+  filter: subtheme_longevityhealthyaging
+- key: longevity senior living and assisted care
+  label: Longevity - Senior Living & Assisted Care
+  filter: subtheme_longevityseniorliving
+- key: nanotech nanoelectronics and semiconductors
+  label: NanoTech - Nanoelectronics & Semiconductors
+  filter: subtheme_nanotechelectronics
+- key: nanotech energy and environment
+  label: NanoTech - Energy & Environment
+  filter: subtheme_nanotechenergy
+- key: nanotech nanomaterials and manufacturing
+  label: NanoTech - Nanomaterials & Manufacturing
+  filter: subtheme_nanotechmaterials
+- key: nanotech nanomedicine and drug delivery
+  label: NanoTech - Nanomedicine & Drug Delivery
+  filter: subtheme_nanotechmedicine
+- key: nanotech consumer and industrial products
+  label: NanoTech - Consumer & Industrial Products
+  filter: subtheme_nanotechproducts
+- key: nanotech research tools and advanced instruments
+  label: NanoTech - Research Tools & Advanced Instruments
+  filter: subtheme_nanotechresearchtools
+- key: nutrition plant based foods and meat alternatives
+  label: Nutrition - Plant-Based Foods & Meat Alternatives
+  filter: subtheme_nutritionaltprotein
+- key: nutrition food delivery and meal kits
+  label: Nutrition - Food Delivery & Meal Kits
+  filter: subtheme_nutritionmealdelivery
+- key: nutrition organic and natural food retailers
+  label: Nutrition - Organic & Natural Food Retailers
+  filter: subtheme_nutritionretailers
+- key: nutrition functional and nutritional supplements
+  label: Nutrition - Functional & Nutritional Supplements
+  filter: subtheme_nutritionsupplements
+- key: quantum applications
+  label: Quantum  - Applications
+  filter: subtheme_quantumapplications
+- key: quantum cloud ecosystems
+  label: Quantum  - Cloud Ecosystems
+  filter: subtheme_quantumcloud
+- key: quantum enabling technologies
+  label: Quantum  - Enabling Technologies
+  filter: subtheme_quantumenablingtech
+- key: quantum hardware platforms
+  label: Quantum  - Hardware Platforms
+  filter: subtheme_quantumhardware
+- key: quantum networking and security
+  label: Quantum  - Networking & Security
+  filter: subtheme_quantumnetworking
+- key: quantum software and tools
+  label: Quantum  - Software & Tools
+  filter: subtheme_quantumsoftware
+- key: real estate healthcare and senior living
+  label: Real Estate - Healthcare & Senior Living
+  filter: subtheme_realestatehealthcare
+- key: real estate housing urban living and demographics
+  label: Real Estate - Housing, Urban Living & Demographics
+  filter: subtheme_realestatehousing
+- key: real estate digital infrastructure
+  label: Real Estate - Digital Infrastructure
+  filter: subtheme_realestateittelecom
+- key: real estate office and commercial workspaces
+  label: Real Estate - Office & Commercial Workspaces
+  filter: subtheme_realestateoffice
+- key: real estate retail and consumer real estate
+  label: Real Estate - Retail & Consumer Real Estate
+  filter: subtheme_realestateretail
+- key: real estate travel leisure and entertainment properties
+  label: Real Estate - Travel, Leisure & Entertainment Properties
+  filter: subtheme_realestatetourism
+- key: real estate e commerce warehousing and logistics
+  label: Real Estate - E-Commerce, Warehousing & Logistics
+  filter: subtheme_realestatewarehousing
+- key: robotics industrial automation
+  label: Robotics - Industrial Automation
+  filter: subtheme_roboticsautomation
+- key: robotics autonomous vehicles and mobility
+  label: Robotics - Autonomous Vehicles & Mobility
+  filter: subtheme_roboticsavmobility
+- key: robotics service and consumer robotics
+  label: Robotics - Service & Consumer Robotics
+  filter: subtheme_roboticsconsumer
+- key: robotics logistics and warehouse robotics
+  label: Robotics - Logistics & Warehouse Robotics
+  filter: subtheme_roboticslogistics
+- key: robotics sensors and vision systems
+  label: Robotics - Sensors & Vision Systems
+  filter: subtheme_roboticsmachinevision
+- key: robotics medical and surgical robotics
+  label: Robotics - Medical & Surgical Robotics
+  filter: subtheme_roboticsmedical
+- key: semis analog mixed signal and power management
+  label: Semis - Analog, Mixed-Signal & Power Management
+  filter: subtheme_semisanalog
+- key: semis logic and cpus gpus accelerators
+  label: Semis - Logic & CPUs, GPUs, Accelerators
+  filter: subtheme_semiscompute
+- key: semis eda tools and design software
+  label: Semis - EDA Tools & Design Software
+  filter: subtheme_semisdesigntools
+- key: semis foundries and manufacturing
+  label: Semis - Foundries & Manufacturing
+  filter: subtheme_semisfoundries
+- key: semis equipment lithography and deposition
+  label: Semis - Equipment, Lithography & Deposition
+  filter: subtheme_semislithography
+- key: semis memory and storage
+  label: Semis - Memory & Storage
+  filter: subtheme_semismemory
+- key: semis emerging technologies
+  label: Semis - Emerging Technologies
+  filter: subtheme_semisnextgen
+- key: semis testing packaging and assembly
+  label: Semis - Testing, Packaging & Assembly
+  filter: subtheme_semispackaging
+- key: semis wireless and connectivity
+  label: Semis - Wireless & Connectivity
+  filter: subtheme_semiswireless
+- key: smart home automation and control systems
+  label: Smart Home - Automation & Control Systems
+  filter: subtheme_smarthomeautomation
+- key: smart home connected devices and appliances
+  label: Smart Home - Connected Devices & Appliances
+  filter: subtheme_smarthomedevices
+- key: smart home energy and utilities
+  label: Smart Home - Energy & Utilities
+  filter: subtheme_smarthomeenergy
+- key: smart home connectivity and networking
+  label: Smart Home - Connectivity & Networking
+  filter: subtheme_smarthomenetworking
+- key: smart home security and monitoring
+  label: Smart Home - Security & Monitoring
+  filter: subtheme_smarthomesecurity
+- key: smart home voice assistants and ai integration
+  label: Smart Home - Voice Assistants & AI Integration
+  filter: subtheme_smarthomevoiceai
+- key: social advertising platforms
+  label: Social - Advertising Platforms
+  filter: subtheme_socialadvertising
+- key: social gaming platforms
+  label: Social - Gaming Platforms
+  filter: subtheme_socialgaming
+- key: social networks and communication platforms
+  label: Social - Networks & Communication Platforms
+  filter: subtheme_socialnetworks
+- key: social niche platforms
+  label: Social - Niche Platforms
+  filter: subtheme_socialniche
+- key: social image and video content platforms
+  label: Social - Image & Video Content Platforms
+  filter: subtheme_socialvisualcontent
+- key: software collaboration and communications
+  label: Software - Collaboration & Communications
+  filter: subtheme_softwarecollaboration
+- key: software customer relationship management and marketing
+  label: Software - Customer Relationship Management & Marketing
+  filter: subtheme_softwarecrm
+- key: software data and analytics
+  label: Software - Data & Analytics
+  filter: subtheme_softwaredataanalytics
+- key: software design creativity and engineering
+  label: Software - Design, Creativity & Engineering
+  filter: subtheme_softwaredesign
+- key: software devops management and observability
+  label: Software - DevOps, Management & Observability
+  filter: subtheme_softwaredevops
+- key: software e commerce and digital platforms
+  label: Software - E-Commerce & Digital Platforms
+  filter: subtheme_softwareecommerce
+- key: software enterprise resource planning and management
+  label: Software - Enterprise Resource Planning & Management
+  filter: subtheme_softwareenterprise
+- key: software gaming and platforms
+  label: Software - Gaming & Platforms
+  filter: subtheme_softwaregaming
+- key: software horizontal saas platforms
+  label: Software - Horizontal SaaS Platforms
+  filter: subtheme_softwarehsaas
+- key: software operating systems
+  label: Software - Operating Systems
+  filter: subtheme_softwareos
+- key: software cybersecurity
+  label: Software - Cybersecurity
+  filter: subtheme_softwaresecurity
+- key: software vertical saas platforms
+  label: Software - Vertical SaaS Platforms
+  filter: subtheme_softwarevsaas
+- key: space data analytics and earth observation
+  label: Space - Data Analytics & Earth Observation
+  filter: subtheme_spacedataanalytics
+- key: space defense and cybersecurity
+  label: Space - Defense & Cybersecurity
+  filter: subtheme_spacedefense
+- key: space infrastructure and exploration
+  label: Space - Infrastructure & Exploration
+  filter: subtheme_spaceinfrastructure
+- key: space logistics and launch services
+  label: Space - Logistics & Launch Services
+  filter: subtheme_spacelaunch
+- key: space satellite networks and connectivity
+  label: Space - Satellite Networks & Connectivity
+  filter: subtheme_spacesatellites
+- key: telecom cloud and edge connectivity
+  label: Telecom - Cloud & Edge Connectivity
+  filter: subtheme_telecomcloudedge
+- key: telecom enterprise and unified communications
+  label: Telecom - Enterprise & Unified Communications
+  filter: subtheme_telecomenterprise
+- key: telecom 5g technology and semiconductors
+  label: Telecom - 5G Technology & Semiconductors
+  filter: subtheme_telecomg
+- key: telecom infrastructure and equipment
+  label: Telecom - Infrastructure & Equipment
+  filter: subtheme_telecominfrastructure
+- key: telecom satellite and space communication
+  label: Telecom - Satellite & Space Communication
+  filter: subtheme_telecomsatcom
+- key: telecom wireless networks and carriers
+  label: Telecom - Wireless Networks & Carriers
+  filter: subtheme_telecomwireless
+- key: transportation air freight and express delivery
+  label: Transportation - Air Freight & Express Delivery
+  filter: subtheme_transportationaircargo
+- key: transportation air travel and passenger transportation
+  label: Transportation - Air Travel & Passenger Transportation
+  filter: subtheme_transportationairtravel
+- key: transportation infrastructure and equipment
+  label: Transportation - Infrastructure & Equipment
+  filter: subtheme_transportationinfrastructure
+- key: transportation marine shipping and ports
+  label: Transportation - Marine Shipping & Ports
+  filter: subtheme_transportationmaritime
+- key: transportation urban mobility and emerging transport tech
+  label: Transportation - Urban Mobility & Emerging Transport Tech
+  filter: subtheme_transportationnextgen
+- key: transportation freight rail and infrastructure
+  label: Transportation - Freight Rail & Infrastructure
+  filter: subtheme_transportationrail
+- key: transportation trucking ltl and ground freight
+  label: Transportation - Trucking, LTL & Ground Freight
+  filter: subtheme_transportationtrucking
+- key: transportation logistics warehousing and supply chain solutions
+  label: Transportation - Logistics, Warehousing & Supply Chain Solutions
+  filter: subtheme_transportationwarehousing
+- key: v a reality content and applications
+  label: V/A Reality - Content & Applications
+  filter: subtheme_varealityapplications
+- key: v a reality enterprise and industrial solutions
+  label: V/A Reality - Enterprise & Industrial Solutions
+  filter: subtheme_varealityenterprise
+- key: v a reality headsets and hardware
+  label: V/A Reality - Headsets & Hardware
+  filter: subtheme_varealityhardware
+- key: v a reality infrastructure and cloud rendering
+  label: V/A Reality - Infrastructure & Cloud Rendering
+  filter: subtheme_varealityinfrastructure
+- key: v a reality software platforms and operating systems
+  label: V/A Reality - Software Platforms & Operating Systems
+  filter: subtheme_varealitysoftware
+- key: wearables audio visual immersive devices
+  label: Wearables - Audio-Visual Immersive Devices
+  filter: subtheme_wearablesimmersive
+- key: wearables health monitoring and medical devices
+  label: Wearables - Health Monitoring & Medical Devices
+  filter: subtheme_wearablesmedical
+- key: wearables smartwatches and fitness devices
+  label: Wearables - Smartwatches & Fitness Devices
+  filter: subtheme_wearablessmartwatches
+- key: wearables software and ecosystems
+  label: Wearables - Software & Ecosystems
+  filter: subtheme_wearablessoftware
+- key: wearables sports fitness and lifestyle applications
+  label: Wearables - Sports, Fitness & Lifestyle Applications
+  filter: subtheme_wearablessport
