@@ -1,6 +1,6 @@
-# Pipeline — KPIs e Investment Quality Score
+# KPIs e Investment Quality Score
 
-Scripts para extraer métricas de mercado y calcular un **Investment Quality Score (0–100)** alineado con [`agents/capa-1-instrumento.md`](agents/capa-1-instrumento.md).
+Scripts para extraer métricas de mercado y calcular un **Investment Quality Score (0–100)**
 
 ## Setup (venv + pip)
 
@@ -26,7 +26,7 @@ main.py  (orquestador) ← cli.py
        └─ outputs/run_*/ (+ cache/) + docs/watchlist.csv
 ```
 
-Shared: `utils/models` (`MarketDocument`, provenance `sources`), `utils/helpers`, `utils/scoring/`, `utils/extractors/` (`KpiGateway` Finviz → Stooq → yfinance). Tunables de score/clasificación: [`docs/config.yml`](docs/config.yml).
+Shared: `utils/models` (`MarketDocument`, provenance `sources`), `utils/helpers`, `utils/scoring/`, `utils/extractors/` (`KpiGateway` Finviz → Stooq → yfinance). Variables customizables de score/clasificación: [`docs/config.yml`](docs/config.yml).
 
 ## Uso
 
